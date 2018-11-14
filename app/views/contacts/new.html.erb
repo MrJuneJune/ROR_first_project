@@ -1,0 +1,29 @@
+<h1> From page </h1>
+
+<div class='container'>
+<%= form_for @contact do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true %>
+
+    <br>
+    
+    <label>Email</label> 
+    <br>
+    <%= current_user.email %>
+    <%= f.hidden_field :email, :value => current_user.email %>
+    
+    <br>
+
+    <%= f.label :message %><br>
+    <%= f.text_area :message, as: :text %>
+
+    <div class="hidden">
+        <%= f.label :filter %><br>
+        <%= f.text_field :filter%>
+    </div>
+
+    <br>
+    <%= f.submit 'Send Mesage', class: 'btn btn-default' %>
+
+<% end %>
+</div>
