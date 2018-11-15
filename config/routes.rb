@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :contacts, only: [:new, :create]
-  root 'main_page#index'
+  resources :graph, only: [:index, :create]
+  root 'main_page#index', as: 'home'
 end
