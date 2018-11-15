@@ -30,7 +30,7 @@ RailsAdmin.config do |config|
       #Check if it has admin
       unless current_user.admin?
         redirect_to(
-          main_app.root_path,
+          main_app.home_path,
           alert: "You are not permitted to view this page"
         )
       end
