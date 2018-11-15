@@ -30,6 +30,8 @@ gem 'mail_form'
 gem 'chartkick'
 gem 'groupdate'
 gem 'rails_admin'
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

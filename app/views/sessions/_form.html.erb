@@ -1,22 +1,22 @@
 <%= form_for :session, url: session_path do |form| %>
-<div class="container">
+<div class="container bg-white p-3 rounded">
   <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
-      <%= form.label :email, :class => 'sr-only' %>
+    <h2 class="form-signin-heading text-center">Sign in</h2>
+      <br>
+      <%= form.label :email %>
       <%= form.text_field :email, :class => 'form-control', :placeholder => 'Email', autofocus: true, type: 'email'  %>
-      <%= form.label :password, :class => 'sr-only' %>
+      <br>
+      <%= form.label :password %>
       <%= form.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
+      <br>
    <%= form.submit({:class => 'btn btn-default'}) %>
   </form>
   <div class="other-links">
+  <br>
     <% if Clearance.configuration.allow_sign_up? %>
       <%= link_to t(".sign_up"), sign_up_path %>
     <% end %>
+    &nbsp;
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 </div>

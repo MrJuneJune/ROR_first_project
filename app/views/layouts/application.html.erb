@@ -1,42 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>  
   <%= csrf_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style>
+  .users{
+    color: white;
+    size: 8px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    position: relative;
+    display: block;
+    line-height: 20px;
+    float: right !important;
+  }
+
+  .navbar{
+    min-height: 60px !important;
+  }
+
+  .nav-link{
+    padding-top: 29px !important;
+    font-size: 20px !important;
+  }
+  .beautify{
+    font-family: "apercu",sans-serif;
+    color: #202121;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px;
+    background-color: #f44336 !important;
+    color: white !important;
+  }
+
+  .closebtn{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .signout{
+    padding-top: 20px; 
+  }
+
+  body {
+    background: url(/assets/BBQ.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  </style>
+
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">DevBBQ</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li>
-            <% if signed_in? -%>
-                <li><%= link_to "Career", new_contact_path, :class => 'nav-item nav_link' %></li>
-                <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => 'btn btn-general margin-auto' %></li>
-                <li>Signed in as: <%= current_user.email %></li>
-            <% else %>
-                <%= link_to t(".sign_in"), sign_in_path, :class => 'nav-item nav_link' %>
-            <% end %>
-          </li>
-          <li><%= link_to "Admin", rails_admin_path, :class => 'nav-item nav_link' %></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%= link_to(image_tag('DevBBQ.png', :alt => 'logo'), home_path, :class => 'navbar-brand')%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if signed_in? -%>
+            <li class='nav-item'><%= link_to "Career", new_contact_path, :class => 'nav-link' %></li>
+              <%if current_user.admin? -%>
+                <li class='nav-item'><%= link_to "Admin", rails_admin_path, target: '_self', :class => 'nav-link' %></li>
+                <li class='nav-item'><%= link_to "Daily Email", graph_index_path, :class => 'nav-link' %></li>
+              <% end %>
+      </ul>
+        <ul class='navbar-nav ml-auto'>
+            <li class='nav-item users' >Signed in as: <%= current_user.email %> &nbsp; </li>
+            <li class='nav-item signout'><%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => 'btn btn-general' %></li>
         </ul>
-      </div><!--/.nav-collapse -->
+        <% else %>
+            <li class='nav-item'><%= link_to t(".sign_in"), sign_in_path, :class => 'nav-link' %></li>
+        <% end %>
+      </ul>
     </div>
   </nav>
 
+  
   <div id="flash">
     <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+      <div class = "beautify" id="flash_<%= key %>">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Danger!</strong>
+        <%=h value %>
+      </div>
     <% end %>
   </div>
 
