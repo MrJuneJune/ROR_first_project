@@ -47,18 +47,13 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.3.1)
-      execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (3.10.1)
+    capybara (3.11.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -198,7 +193,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    regexp_parser (1.2.0)
+    regexp_parser (1.3.0)
     remotipart (1.4.2)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
@@ -255,7 +250,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap-sass
   byebug
   capybara (>= 2.15)
   chartkick
@@ -264,7 +258,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   groupdate
   jbuilder (~> 2.5)
-  jquery-rails
   listen (>= 3.0.5, < 3.2)
   mail_form
   mysql2 (>= 0.4.4, < 0.6.0)
