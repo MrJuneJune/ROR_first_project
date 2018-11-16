@@ -1,14 +1,15 @@
 <%= form_for :session, url: session_path do |form| %>
 <div class="container bg-white p-3 rounded">
   <form class="form-signin">
-    <h2 class="form-signin-heading text-center">Sign in</h2>
-      <br>
+    <h1 class="form-signin-heading text-center">Sign in</h1>
+    <div class="text-field form-group">
       <%= form.label :email %>
       <%= form.text_field :email, :class => 'form-control', :placeholder => 'Email', autofocus: true, type: 'email'  %>
-      <br>
+    </div>
+    <div class="text-field form-group">
       <%= form.label :password %>
       <%= form.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
-      <br>
+    </div>
    <%= form.submit({:class => 'btn btn-default'}) %>
   </form>
   <div class="other-links">
