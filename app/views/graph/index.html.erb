@@ -1,4 +1,6 @@
-<div class="container bg-white p-3 rounded mt-5">
-    <h1>Total Number of Emails per Dates</h1>
-    <%= line_chart Clicker.group(:dates).sum(:clickers) %>
+<div class ='vertical-center'>
+    <div class="container bg-white p-3 rounded">
+        <h1>Total Number of Emails per Dates</h1>
+        <%= line_chart Clicker.group(:dates).sum(:clickers) %>
+    </div>
 </div>

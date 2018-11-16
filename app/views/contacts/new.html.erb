@@ -4,23 +4,25 @@
 }
 </style>
 
-<%= form_for @contact do |f| %>
-    <div class="container bg-white p-3 rounded mt-5">
-        <h1 class ="text-center"> Send Email ! </h1>
-        <%= f.label :name, :class => 'labels'%>:
-        <br>
-        <%= f.text_field :name, required: true, :class => "form-control"%>
-        <br>
-        <label class='labels'>Email</label>: <%= current_user.email %>
-        <%= f.hidden_field :email, :value => current_user.email, :class => "form-control"%>
-        <br>
-        <%= f.label :message %>:<br>
-        <%= f.text_area :message, as: :text, :class => "form-control"%>
-        <div class="hidden">
-            <%= f.label :filter %><br>
-            <%= f.text_field :filter%>
+<div class='vertical-center'>
+    <%= form_for @contact do |f| %>
+        <div class="container bg-white p-3 rounded">
+            <h1 class ="text-center"> Send Email ! </h1>
+            <%= f.label :name, :class => 'labels'%>:
+            <br>
+            <%= f.text_field :name, required: true, :class => "form-control"%>
+            <br>
+            <label class='labels'>Email</label>: <%= current_user.email %>
+            <%= f.hidden_field :email, :value => current_user.email, :class => "form-control"%>
+            <br>
+            <%= f.label :message %>:<br>
+            <%= f.text_area :message, as: :text, :class => "form-control"%>
+            <div class="hidden">
+                <%= f.label :filter %><br>
+                <%= f.text_field :filter%>
+            </div>
+            <br>
+            <%= f.submit 'Send Mesage', class: 'btn btn-default' %>
         </div>
-        <br>
-        <%= f.submit 'Send Mesage', class: 'btn btn-default' %>
-    </div>
-<% end %>
+    <% end %>
+</div>

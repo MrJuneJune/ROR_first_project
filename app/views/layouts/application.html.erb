@@ -51,7 +51,7 @@
   }
 
   body {
-    background: url(/assets/BBQ.jpg) no-repeat center center fixed;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 59%, rgba(0, 0, 0, 0.80) 100%), url(/assets/BBQ.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -59,6 +59,15 @@
     height: 100%;
   }
 
+  .vertical-center {
+    min-height: calc(100% - 100px);  /* Fallback for browsers do NOT support vh unit */
+    display: flex;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+  }
   </style>
 
 </head>
