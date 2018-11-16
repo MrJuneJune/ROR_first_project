@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   resources :graph, only: [:index, :create]
   root 'main_page#index', as: 'home'
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :usersdata
+    end
+  end
 end
