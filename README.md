@@ -27,3 +27,5 @@ Edit database.yml file in the config.
 Description:
 
 Created a demo website where people can sign up and apply for a toronto spiria job.
+
+![](https://i.imgur.com/ZDM7uHL.png)
